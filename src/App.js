@@ -21,9 +21,9 @@ class App extends Component {
 
   render() {
     const txt = this.state.repo;
-    if(txt){
+    /*if(txt){
       console.log(txt[0]);
-    }
+    }*/
     
     return (
       <div className="App">
