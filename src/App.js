@@ -20,18 +20,12 @@ class App extends Component {
   }
 
   render() {
-    const txt = this.state.repo;
-    /*if(txt){
-      console.log(txt[0]);
-    }*/
-    
+    const data = this.state.repo;
+   
     return (
       <div className="App">
         <header className="App-header">
-        < TrendGit data={txt}/>
-          <p>
-            {/*txt ? txt[0].name: ""*/}
-          </p>
+        < TrendGit data={data} />
         </header>
       </div>
     );
