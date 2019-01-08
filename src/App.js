@@ -6,10 +6,10 @@ function toJson(data) {
   return data.json();
 }
 
-function printError(e){
+/*function printError(e){
   console.error(e);
   this.setState({toError: true});
-}
+}*/
 
 class App extends Component {
   state = {
@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('https://github-trending-api.now.sh/repositories').then(toJson).then(data => this.setState({repo: data})).catch(printError.bind(this));
+    fetch('https://github-trending-api.now.sh/repositories').then(toJson).then(data => this.setState({repo: data})).catch(e => {console.error(e); this.setState({toError: true});}); // catch(printError.bind(this)
   }
 
   render() {
