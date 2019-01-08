@@ -8,19 +8,21 @@ function toJson(data) {
 
 function printError(e){
   console.error(e);
+  this.setState({toError: true});
 }
 
 class App extends Component {
   state = {
     repo: null,
+    toError: false,
   }
 
   componentDidMount(){
-    fetch('https://github-trending-api.now.sh/repositories').then(toJson).then(data => this.setState({repo: data})).catch(printError);
+    fetch('https://github-trending-api.now.sh/repositories').then(toJson).then(data => this.setState({repo: data})).catch(printError.bind(this));
   }
 
   render() {
-    const data = this.state.repo;
+    const data = this.state;
    
     return (
       <div className="App">
